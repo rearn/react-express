@@ -1,0 +1,7 @@
+version: '2' # 暫定的に2に。docker swam に関して勉強する  
+services:
+  
+  cron:
+    command: ["/bin/sh"]
+
+  maria:

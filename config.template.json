@@ -1,0 +1,52 @@
+{
+  "common": {
+    "db": {
+      "type": "mariadb",
+      "synchronize": false,
+      "logging": true,
+      "entities": [
+        "src/backend/db/entity/**/*.ts"
+      ],
+      "migrations": [
+        "src/backend/db/migration/**/*.ts"
+      ],
+      "subscribers": [
+        "src/backend/db/subscriber/**/*.ts"
+      ],
+      "cli": {
+        "entitiesDir": "src/backend/db/entity",
+        "migrationsDir": "src/backend/db/migration",
+        "subscribersDir": "src/backend/db/subscriber"
+      }
+    }
+  },
+  "uniquely": {
+    "development": {
+      "db": {
+        "host": "maria",
+        "port": 3306,
+        "username": "docker",
+        "password": "docker",
+        "database": "test_database"
+      }
+    },
+    "test": {
+      "db": {
+        "host": "localhost",
+        "port": 3306,
+        "username": "test",
+        "password": "test",
+        "database": "test_database"
+      }
+    },
+    "production": {
+      "db": {
+        "host": "maria",
+        "port": 3306,
+        "username": "",
+        "password": "",
+        "database": ""
+      }
+    }
+  }
+}

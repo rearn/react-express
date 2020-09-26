@@ -1,0 +1,32 @@
+version: '2' # 暫定的に2に。docker swam に関して勉強する  
+services:
+  web:
+    tty: true
+    image: node:lts-alpine3.11
+    user: 1000:1000
+    restart: always
+    ports:
+      - '3000:3000'
+      - '3001:3001'
+      - '4000:4000'
+    working_dir: /mnt
+    volumes:
+      - ./:/mnt
+    links:
+      - maria:maria
+    depends_on:
+      - maria
+    command: ["npm", "run", "start:dev"]
+
+  maria:
+    image: mariadb:10
+    user: 1000:1000
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: passwd
+      MYSQL_DATABASE: audio
+      MYSQL_USER: audio
+      MYSQL_PASSWORD: test
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - ./db:/var/lib/mysql

@@ -1,0 +1,12 @@
+*.log
+
+coverage
+
+node_modules/
+
+dist/
+gulpfile.js/
+
+config.json
+
+db/
