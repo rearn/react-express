@@ -10,3 +10,4 @@ gulpfile.js/
 config.json
 
 db/
+!db/.keep

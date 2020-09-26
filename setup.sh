@@ -1,7 +1,5 @@
 #!/bin/bash
 
-mkdir -p db
-
 # build
 docker run -d --volume="$(pwd):/mnt" --user="1000:1000" -w="/mnt" --name="setup" -it node:lts-alpine3.11 /bin/sh
 docker exec -it setup /bin/sh -c 'npm install'
