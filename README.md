@@ -3,7 +3,7 @@
 ## はじめに
 
 自分用のテンプレートファイル群です。
-自身の宗教色もりもり
+自身の趣味もりもり
 
 ## 必要環境
 
@@ -48,7 +48,6 @@ npm run start:dev
 実行後、以下のコマンドで作成したファイルを削除しておいたほうが、 docker 実行時にトラブルが少ないと思います。
 
 ```bash
-rm -fv package-lock.json
 rm -fv config.json
 rm -rfv dist
 rm -rfv gulpfile.js
