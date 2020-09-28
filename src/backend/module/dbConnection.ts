@@ -10,7 +10,7 @@ export default new Proxy(<{[key: string]: Promise<Connection>}>{}, {
       await Promise.all(
         connections.map((v) => v.connection.close().then(() => logger.info(`disconnection DB (${v.mode})`))),
       );
-      return <any>null;
+      return <Connection>{};
     }
     const t = connections.find((v) => v.mode === mode);
     if (t === undefined) {
