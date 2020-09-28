@@ -6,6 +6,7 @@ import ReactDOM from 'react-dom';
 const getapi = async () => {
   const res = await fetch('/api2005');
   const json = await res.json();
+  // eslint-disable-next-line no-console
   console.log(json);
   return json;
 };
@@ -33,19 +34,23 @@ export const Index = () => {
       <table>
         <tbody>
           <tr>
-            <th></th>
+            <th> </th>
             <th>千葉ロッテマリーンズ</th>
             <th>阪神タイガース</th>
           </tr>
-          {data.map((item, i) =>
-            <tr key={i}>
-              <td>第{i+1}試合</td>
+          {data.map((item, i) => (
+            <tr>
+              <td>
+                第
+                {i + 1}
+                試合
+              </td>
               <td>{item.L}</td>
               <td>{item.H}</td>
             </tr>
-          )}
-          <tr className='sum'>
-            <td></td>
+          ))}
+          <tr className="sum">
+            <td> </td>
             <td>{sum.L}</td>
             <td>{sum.H}</td>
           </tr>

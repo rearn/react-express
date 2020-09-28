@@ -21,13 +21,7 @@ export default new Proxy(<{[key: string]: Promise<Connection>}>{}, {
   set: () => {
     throw new Error('Do not call');
   },
-  apply: () => {
-    return Promise.all(
-      connections.map((v) =>
-        v.connection.close().then(() =>
-          logger.info(`disconnection DB (${v.mode})`)
-        )
-      )
-    );
-  }
+  apply: () => Promise.all(
+    connections.map((v) => v.connection.close().then(() => logger.info(`disconnection DB (${v.mode})`))),
+  ),
 });
