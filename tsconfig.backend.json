@@ -18,14 +18,11 @@
     "paths": {
       "@/*": [
         "src/backend/*"
-      ],
-      "^/*": [
-        "src/frontend/*"
       ]
     },
   },
   "include": [
-    "./src/"
+    "src/backend/**/*.*"
   ],
   "exclude": [
     "./node_modules"

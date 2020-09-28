@@ -20,33 +20,69 @@
       }
     }
   },
-  "uniquely": {
-    "development": {
-      "db": {
-        "host": "maria",
-        "port": 3306,
-        "username": "docker",
-        "password": "docker",
-        "database": "test_database"
-      }
+  "uniquely": [
+    {
+      "name": "development",
+      "db": [
+        {
+          "name": "write",
+          "host": "maria",
+          "port": 3306,
+          "username": "docker",
+          "password": "docker",
+          "database": "test_database"
+        },
+        {
+          "name": "read",
+          "host": "maria",
+          "port": 3306,
+          "username": "docker",
+          "password": "docker",
+          "database": "test_database"
+        }
+      ]
     },
-    "test": {
-      "db": {
-        "host": "localhost",
-        "port": 3306,
-        "username": "test",
-        "password": "test",
-        "database": "test_database"
-      }
+    {
+      "name": "test",
+      "db": [
+        {
+          "name": "write",
+          "host": "localhost",
+          "port": 3306,
+          "username": "test",
+          "password": "test",
+          "database": "test_database"
+        },
+        {
+          "name": "read",
+          "host": "localhost",
+          "port": 3306,
+          "username": "test",
+          "password": "test",
+          "database": "test_database"
+        }
+      ]
     },
-    "production": {
-      "db": {
-        "host": "maria",
-        "port": 3306,
-        "username": "",
-        "password": "",
-        "database": ""
-      }
+    {
+      "name": "production",
+      "db": [
+        {
+          "name": "write",
+          "host": "maria",
+          "port": 3306,
+          "username": "",
+          "password": "",
+          "database": ""
+        },
+        {
+          "name": "read",
+          "host": "maria",
+          "port": 3306,
+          "username": "",
+          "password": "",
+          "database": ""
+        }
+      ]
     }
-  }
+  ]
 }
