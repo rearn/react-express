@@ -1,36 +1,33 @@
-/**
- * @file DB 関連の関数群
- */
 import { createConnection, getConnectionOptions, Connection } from 'typeorm';
 import { logger, TypeOrmWinstonLogger } from '@/module/logger';
 import runMode from '@/module/runMode';
 
-let connection: Connection|null = null;
+const connections: { connection: Connection, mode: string }[] = [];
 
-/**
- * DB への接続
- */
-export const beginConnection = async (): Promise<Connection> => {
-  if (connection !== null) {
-    return connection;
+export default new Proxy(<{[key: string]: Promise<Connection>}>{}, {
+  get: async (target, mode: string): Promise<Connection> => {
+    const t = connections.find((v) => v.mode === mode);
+    if (t === undefined) {
+      const v = await getConnectionOptions(`${runMode}_${mode}`);
+      const connection = await createConnection(
+        Object.assign(v, { logger: new TypeOrmWinstonLogger(true) }),
+      );
+      connections.push({ connection, mode });
+      logger.info(`Connection DB (${mode})`);
+      return connection;
+    }
+    return t.connection;
+  },
+  set: () => {
+    throw new Error('Do not call');
+  },
+  apply: () => {
+    return Promise.all(
+      connections.map((v) =>
+        v.connection.close().then(() =>
+          logger.info(`disconnection DB (${v.mode})`)
+        )
+      )
+    );
   }
-  const v = await getConnectionOptions(runMode);
-  connection = await createConnection(
-    Object.assign(v, { logger: new TypeOrmWinstonLogger(true) }),
-  );
-  logger.info('Connection DB');
-  return connection;
-};
-
-/**
- * DB との切断
- */
-export const closeConnection = async (): Promise<null> => {
-  if (connection === null) {
-    return null;
-  }
-  await connection.close();
-  logger.info('disconnection DB');
-  connection = null;
-  return null;
-};
+});

@@ -2,7 +2,7 @@
  * @file サーバ起動スクリプト
  */
 import { logger } from '@/module/logger';
-import { beginConnection, closeConnection } from '@/module/dbConnection';
+import dbConnection from '@/module/dbConnection';
 import app from './main';
 
 process.on('uncaughtException', (err) => {
@@ -28,7 +28,7 @@ process.on('exit', () => logger.info('app stop'));
     logger.info(`receive ${code}`);
     server.close(async () => {
       logger.info('Server terminated');
-      // await closeConnection();
+      (<() => Promise<unknown>><unknown>dbConnection)();
     });
   };
 
