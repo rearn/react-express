@@ -17,16 +17,13 @@
     "outDir": "./dist/types",
     "baseUrl": "./",
     "paths": {
-      "@/*": [
-        "src/backend/*"
-      ],
       "^/*": [
         "src/frontend/*"
       ]
     },
   },
   "include": [
-    "./src/"
+    "src/frontend/**/*.*"
   ],
   "exclude": [
     "./node_modules"
