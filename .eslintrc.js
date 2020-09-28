@@ -13,6 +13,9 @@ module.exports = {
     sourceType: 'module',
     project: './tsconfig.json',
   },
+  settings: {
+    'import/resolver': 'webpack',
+  },
   plugins: [
     '@typescript-eslint',
   ],
@@ -56,9 +59,6 @@ module.exports = {
       files: [
         'src/frontend/**/*.{j,t}s(x)?',
       ],
-      settings: {
-        'import/resolver': 'webpack',
-      },
       extends: [
         'eslint:recommended',
         'react-app',
@@ -66,14 +66,6 @@ module.exports = {
         'plugin:react-hooks/recommended',
         'plugin:@typescript-eslint/recommended',
       ],
-      parserOptions: {
-        ecmaFeatures: {
-          jsx: true,
-        },
-        ecmaVersion: 12,
-        sourceType: 'module',
-        project: './tsconfig.json',
-      },
     },
     {
       files: [
