@@ -28,7 +28,7 @@ process.on('exit', () => logger.info('app stop'));
     logger.info(`receive ${code}`);
     server.close(async () => {
       logger.info('Server terminated');
-      (<() => Promise<unknown>><unknown>dbConnection)();
+      await dbConnection.close;
     });
   };
 
