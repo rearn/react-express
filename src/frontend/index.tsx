@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import './main.styl';
 
 import React, { useState, useEffect } from 'react';
@@ -39,7 +40,7 @@ export const Index = () => {
             <th>阪神タイガース</th>
           </tr>
           {data.map((item, i) => (
-            <tr>
+            <tr key={i}>
               <td>
                 第
                 {i + 1}
