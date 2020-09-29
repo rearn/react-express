@@ -14,17 +14,17 @@
     "esModuleInterop": true,
     "declaration": true,
     "outDir": "./dist/types",
-    "baseUrl": "./",
+    "baseUrl": "../../",
     "paths": {
       "@/*": [
         "src/backend/*"
       ]
-    },
+    }
   },
   "include": [
-    "src/backend/**/*.*"
+    "./**/*.*"
   ],
   "exclude": [
-    "./node_modules"
+    "node_modules"
   ]
 }

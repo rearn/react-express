@@ -13,7 +13,7 @@ module.exports = {
     },
     ecmaVersion: 12,
     sourceType: 'module',
-    project: './tsconfig.frontend.json',
+    project: './src/frontend/tsconfig.json',
   },
   settings: {
     'import/resolver': 'webpack',

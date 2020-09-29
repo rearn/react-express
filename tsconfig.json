@@ -1,21 +1,5 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
-    "lib": ["es6", "dom"],
-    "moduleResolution": "node",
-    "noImplicitAny": true,
-    "removeComments": true,
-    "preserveConstEnums": true,
-    "sourceMap": true,
-    "strictNullChecks": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "esModuleInterop": true,
-    "declaration": true,
-    "jsx": "react",
-    "outDir": "./dist/types",
-    "baseUrl": "./",
     "paths": {
       "@/*": [
         "src/backend/*"
@@ -23,13 +7,6 @@
       "^/*": [
         "src/frontend/*"
       ]
-    },
-  },
-  "include": [
-    "./src/",
-    "./tests/"
-  ],
-  "exclude": [
-    "./node_modules"
-  ]
+    }
+  }
 }
