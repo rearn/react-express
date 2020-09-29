@@ -9,7 +9,7 @@ gulpfile.js/
 
 config.json
 
-db/
+db/*
 !db/.keep
 !src/backend/db
 
