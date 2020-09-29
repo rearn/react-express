@@ -20,7 +20,7 @@ module.exports = {
         test: /\.tsx?$/,
         loader: 'ts-loader',
         options: {
-          configFile: 'tsconfig.frontend.json',
+          configFile: 'src/frontend/tsconfig.json',
         },
         include: /src\/frontend/,
         exclude: /node_modules/,
