@@ -15,6 +15,7 @@ import webpackConfigPro from '../webpack.config.production';
 import webpackConfigDev from '../webpack.config.development';
 
 const tsProject = gulpTypescript.createProject('src/backend/tsconfig.json');
+(<any>tsProject.config.compilerOptions).baseUrl = './';
 
 export const eslint = () => gulp
   .src(config.src.alljs)
