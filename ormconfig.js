@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const config = require('./config.json');
-const TypeOrmNamingStrategy = require('./src/backend/db/TypeOrmNamingStrategy.js')
+const TypeOrmNamingStrategy = require('./src/backend/db/config/TypeOrmNamingStrategy.js')
 
 module.exports = (() => {
   const ret = [];
