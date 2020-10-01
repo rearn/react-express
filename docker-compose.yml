@@ -24,9 +24,9 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: passwd
-      MYSQL_DATABASE: audio
-      MYSQL_USER: audio
-      MYSQL_PASSWORD: test
+      MYSQL_DATABASE: test_database
+      MYSQL_USER: docker
+      MYSQL_PASSWORD: docker
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     volumes:
       - ./db:/var/lib/mysql
