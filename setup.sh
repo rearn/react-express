@@ -12,6 +12,6 @@ docker-compose -f docker-compose.yml -f docker-compose-migration.yml exec web /b
 docker-compose -f docker-compose.yml -f docker-compose-migration.yml down
 
 # # make migration file
-# docker-compose -f docker-compose.yml -f docker-compose-migration.yml up -d cron
-# docker-compose -f docker-compose.yml -f docker-compose-migration.yml exec cron /bin/sh -c 'npm run migration:generate'
+# docker-compose -f docker-compose.yml -f docker-compose-migration.yml up -d web maria
+# docker-compose -f docker-compose.yml -f docker-compose-migration.yml exec web /bin/sh -c 'npm run migration:generate -- -c development_write'
 # docker-compose -f docker-compose.yml -f docker-compose-migration.yml down
