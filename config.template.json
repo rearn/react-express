@@ -5,13 +5,13 @@
       "synchronize": false,
       "logging": true,
       "entities": [
-        "src/backend/db/entity/**/*.ts"
+        "dist/db/entity/**/*.js"
       ],
       "migrations": [
-        "src/backend/db/migration/**/*.ts"
+        "dist/db/migration/**/*.js"
       ],
       "subscribers": [
-        "src/backend/db/subscriber/**/*.ts"
+        "dist/db/subscriber/**/*.js"
       ],
       "cli": {
         "entitiesDir": "src/backend/db/entity",
