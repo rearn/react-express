@@ -6,7 +6,7 @@
   "scripts": {
     "mkconfig": "test -e config.json || cp config.template.json config.json",
     "clean:dist": "rm -rfv ./dist",
-    "clean:db": "find db -type f -not -name '.keep' -exec rm -rfv {} \\;",
+    "clean:db": "find db -type f -not -name '.keep' -exec rm -rfv {} \\; && rmdir --ignore-fail-on-non-empty -pv $(find db -type d)",
     "gulp:build": "tsc --target ES2015 --module commonjs --lib es6 --esModuleInterop --outDir gulpfile.js $(find ./gulpfile.ts/ -type f -name '*.ts')",
     "pregulp": "npm run gulp:build",
     "gulp": "gulp",
@@ -77,6 +77,7 @@
     "express": "^4.17.1",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
+    "pluralize": "^8.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "typeorm": "^0.2.26",
