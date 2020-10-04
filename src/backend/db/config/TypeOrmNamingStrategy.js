@@ -16,14 +16,14 @@ module.exports = class TypeOrmNamingStrategy extends DefaultNamingStrategy {
   }
 
   joinColumnName(relationName, referencedColumnName) {
-    return snakeCase(pluralize.singular(relationName) + '_' + referencedColumnName)
+    return snakeCase(`${pluralize.singular(relationName)}_${referencedColumnName}`)
   }
 
   joinTableName(firstTableName, secondTableName, firstPropertyName, secondPropertyName) {
-    return snakeCase(firstTableName + '_' + secondTableName)
+    return snakeCase(`${firstTableName}_${secondTableName}`)
   }
 
   joinTableColumnName(tableName, propertyName, columnName) {
-    return snakeCase(pluralize.singular(tableName) + '_' + (columnName ? columnName : propertyName))
+    return snakeCase(`${pluralize.singular(tableName)}_${(columnName ? columnName : propertyName)}`)
   }
 }
