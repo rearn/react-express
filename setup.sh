@@ -8,7 +8,7 @@ docker rm setup
 
 # migration
 docker-compose -f docker-compose.yml -f docker-compose-migration.yml up -d web maria
-docker-compose -f docker-compose.yml -f docker-compose-migration.yml exec web /bin/sh -c 'npm run migration:run'
+docker-compose -f docker-compose.yml -f docker-compose-migration.yml exec web /bin/sh -c 'npm run migration:run -- -c development_write'
 docker-compose -f docker-compose.yml -f docker-compose-migration.yml down
 
 # # make migration file
